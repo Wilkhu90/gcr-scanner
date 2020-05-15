@@ -56,6 +56,16 @@
                 <artifactId>animal-sniffer-annotations</artifactId>
                 <version>1.18</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>29.0-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-stub</artifactId>
+                <version>1.29.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -91,20 +101,14 @@
             <groupId>io.grafeas</groupId>
             <artifactId>grafeas</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>29.0-android</version>
-            <scope>runtime</scope>
-        </dependency>
     </dependencies>
 
     <!-- If you want this to appear on the wiki page:
     <developers>
       <developer>
-        <id>bhacker</id>
-        <name>Bob Q. Hacker</name>
-        <email>bhacker@nowhere.net</email>
+        <id>wilkhu90</id>
+        <name>Sumeet Wilkhu</name>
+        <email>sumeet.wilkhu@gmail.com</email>
       </developer>
     </developers> -->
 
@@ -128,4 +132,5 @@
             <url>https://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
     </pluginRepositories>
+
 </project>
