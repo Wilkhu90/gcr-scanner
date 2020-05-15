@@ -13,7 +13,7 @@
     <packaging>hpi</packaging>
     <properties>
         <!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to run. -->
-        <jenkins.version>2.164.3</jenkins.version>
+        <jenkins.version>2.222.1</jenkins.version>
         <java.level>8</java.level>
         <!-- Other properties you may want to use:
           ~ jenkins-test-harness.version: Jenkins Test Harness version you use to test the plugin. For Jenkins version >= 1.580.1 use JTH 2.0 or higher.
@@ -34,8 +34,8 @@
             <dependency>
                 <!-- Pick up common dependencies for 2.164.x: https://github.com/jenkinsci/bom#usage -->
                 <groupId>io.jenkins.tools.bom</groupId>
-                <artifactId>bom-2.164.x</artifactId>
-                <version>3</version>
+                <artifactId>bom-2.222.x</artifactId>
+                <version>9</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -45,16 +45,6 @@
                 <version>5.2.0</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-                <version>4.4.13</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>animal-sniffer-annotations</artifactId>
-                <version>1.18</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -88,14 +78,43 @@
             <artifactId>google-cloud-containeranalysis</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.grafeas</groupId>
-            <artifactId>grafeas</artifactId>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.4.13</version>
         </dependency>
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>29.0-jre</version>
-            <scope>runtime</scope>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>animal-sniffer-annotations</artifactId>
+            <version>1.18</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-api</artifactId>
+            <version>1.29.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grafeas</groupId>
+            <artifactId>grafeas</artifactId>
         </dependency>
     </dependencies>
 
@@ -132,30 +151,11 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.0.0</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>shade</goal>
-                            </goals>
-                            <configuration>
-                                <finalName>${project.version}-shaded</finalName>
-                                <relocations>
-                                    <relocation>
-                                        <pattern>com.google</pattern>
-                                        <shadedPattern>shaded.com.google</shadedPattern>
-                                    </relocation>
-                                </relocations>
-                                <artifactSet>
-                                    <includes>
-                                        <include>*:*</include>
-                                    </includes>
-                                </artifactSet>
-                            </configuration>
-                        </execution>
-                    </executions>
+                    <groupId>org.jenkins-ci.tools</groupId>
+                    <artifactId>maven-hpi-plugin</artifactId>
+                    <configuration>
+                        <pluginFirstClassLoader>true</pluginFirstClassLoader>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
