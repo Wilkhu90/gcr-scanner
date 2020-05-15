@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    The plugin is meant for GCR Image scanning
+</div>
