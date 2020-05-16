@@ -116,6 +116,11 @@
             <groupId>io.grafeas</groupId>
             <artifactId>grafeas</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.massisframework</groupId>
+            <artifactId>j-text-utils</artifactId>
+            <version>0.3.4</version>
+        </dependency>
     </dependencies>
 
     <!-- If you want this to appear on the wiki page:
