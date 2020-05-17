@@ -153,16 +153,6 @@
         </pluginRepository>
     </pluginRepositories>
     <build>
-        <resources>
-            <resource>
-                <directory>src/my-resources</directory>
-                <includes>
-                    <include>opa</include>
-                    <include>basic-policy.rego</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -183,6 +173,12 @@
                                         <includes>
                                             <include>opa</include>
                                             <include>basic-policy.rego</include>
+                                        </includes>
+                                    </resource>
+                                    <resource>
+                                        <directory>src/resources/</directory>
+                                        <includes>
+                                            <include>*.*</include>
                                         </includes>
                                     </resource>
                                 </resources>
