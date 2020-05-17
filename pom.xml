@@ -158,6 +158,7 @@
                 <directory>src/my-resources</directory>
                 <includes>
                     <include>opa</include>
+                    <include>basic-policy.rego</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
@@ -181,6 +182,7 @@
                                         <directory>src/my-resources/</directory>
                                         <includes>
                                             <include>opa</include>
+                                            <include>basic-policy.rego</include>
                                         </includes>
                                     </resource>
                                 </resources>
