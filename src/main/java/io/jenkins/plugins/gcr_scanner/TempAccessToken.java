@@ -4,8 +4,7 @@ public class TempAccessToken {
     private String access_token;
     private Long expires_in;
 
-    public TempAccessToken() {
-    }
+    public TempAccessToken() {}
 
     public TempAccessToken(String access_token, Long expires_in) {
         this.access_token = access_token;
