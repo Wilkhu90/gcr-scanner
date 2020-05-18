@@ -6,6 +6,9 @@ test_severity(input_severity, expected_severity) {
 
 deny_image {
     test_severity(input.result[_].Severity, "CRITICAL")
+}
+
+deny_image {
     test_severity(input.result[_].Severity, "HIGH")
 }
 
