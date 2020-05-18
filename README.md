@@ -25,7 +25,7 @@ Following is an example policy that will be automatically loaded in the jenkins 
 
 # Pipeline support
 
-The plugin can be used in FreeStyle jobs as well as Pipeline. Here'' an example for a declarative pipeline
+The plugin can be used in FreeStyle jobs as well as Pipeline. Here's an example for a declarative pipeline
 ```groovy
 pipeline {
    agent {
