@@ -41,8 +41,6 @@ pipeline {
       }
    }
 }
-
+```
 Here's how the output looks like.
 ![image](images/execution.png)
-
-```
