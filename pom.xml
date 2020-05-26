@@ -15,6 +15,8 @@
         <!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to run. -->
         <jenkins.version>2.190.1</jenkins.version>
         <java.level>8</java.level>
+        <findbugs-maven-plugin.version>3.0.1</findbugs-maven-plugin.version>
+        <findbugs.failOnError>false</findbugs.failOnError>
         <!-- Other properties you may want to use:
           ~ jenkins-test-harness.version: Jenkins Test Harness version you use to test the plugin. For Jenkins version >= 1.580.1 use JTH 2.0 or higher.
           ~ hpi-plugin.version: The HPI Maven Plugin version used by the plugin..
@@ -121,6 +123,12 @@
             <artifactId>j-text-utils</artifactId>
             <version>0.3.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>annotations</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <developers>
@@ -190,6 +198,24 @@
                     <configuration>
                         <pluginFirstClassLoader>true</pluginFirstClassLoader>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>${findbugs-maven-plugin.version}</version>
+                    <configuration>
+                        <xmlOutput>true</xmlOutput>
+                        <failOnError>${findbugs.failOnError}</failOnError>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>run-findbugs</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
