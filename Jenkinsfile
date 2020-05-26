@@ -1,1 +1,1 @@
-buildPlugin(findbugs: [run: false, unstableTotalAll: 10, unstableNewAll: 10], useAci: true, configurations: [[platform: 'linux', jdk: '8']])
+buildPlugin(platforms: ['linux', 'linux'], jdkVersions: [8], findbugs: [archive: false, unstableTotalAll: '10'], checkstyle: [run: false, archive: true])
